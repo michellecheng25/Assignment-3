@@ -4,7 +4,23 @@ let numCols = 0;
 let colorSelected;
 
 // Add a row
-function addR() {}
+function addR() {
+  //create a tr element
+  numRows++;
+  var table = document.getElementById("grid");
+  if (numCols === 0) {
+    numCols++;
+  }
+  var tr = document.createElement("tr");
+  table.appendChild(tr);
+
+  //append td to last tr element
+  const lastRow = table.lastChild;
+  for (let i = 0; i < numCols; i++) {
+    var td = document.createElement("td");
+    lastRow.appendChild(td);
+  }
+}
 
 // Add a column
 function addC() {}
