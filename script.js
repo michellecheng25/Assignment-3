@@ -7,7 +7,24 @@ let colorSelected;
 function addR() {}
 
 // Add a column
-function addC() {}
+function addC() {
+  numCols++;
+  var table = document.getElementById("grid");
+
+  //create the first row if there are no rows
+  if (numRows === 0) {
+    var tr = document.createElement("tr");
+    table.appendChild(tr);
+    numRows++;
+  }
+
+  //append columns to all tr elements
+  var rows = document.querySelectorAll("tr");
+  for (let i = 0; i < numRows; i++) {
+    var td = document.createElement("td");
+    rows[i].appendChild(td);
+  }
+}
 
 // Remove a row
 function removeR() {}
