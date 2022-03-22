@@ -43,10 +43,25 @@ function addC() {
 }
 
 // Remove a row
-function removeR() {}
+function removeR() {
+  numRows--;
+  var table = document.getElementById("grid");
+  var rows = document.querySelectorAll("tr");
+  //remove last row
+  table.removeChild(rows[numRows]);
+}
 
 // Remove a column
-function removeC() {}
+function removeC() {
+  numCols--;
+  var table = document.getElementById("grid");
+  var rows = document.querySelectorAll("tr");
+
+  //delete the last cell from each row
+  for (let i = 0; i < numRows; i++) {
+    rows[i].deleteCell(numCols);
+  }
+}
 
 // Set global variable for selected color
 function selectColor() {}
