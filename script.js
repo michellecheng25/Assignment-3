@@ -73,4 +73,9 @@ function fillU() {}
 function fillAll() {}
 
 // Clear all cells
-function clearAll() {}
+function clearAll() {
+  numRows = 0;
+  numCols = 0;
+  var table = document.getElementById("grid");
+  table.innerHTML = "";
+}
