@@ -1,6 +1,6 @@
 // Declare global variables
 let numRows = 0;
-let numCols = 0;
+let numCols = 0; //cols per row
 let colorSelected = document.getElementById("selectedColorId").value;
 
 // Add a row
@@ -70,22 +70,26 @@ function changeColor(target) {
 
 // Remove a row
 function removeR() {
-  numRows--;
-  var table = document.getElementById("grid");
-  var rows = document.querySelectorAll("tr");
-  //remove last row
-  table.removeChild(rows[numRows]);
+  if (numRows > 0) {
+    numRows--;
+    var table = document.getElementById("grid");
+    var rows = document.querySelectorAll("tr");
+    //remove last row
+    table.removeChild(rows[numRows]);
+  }
 }
 
 // Remove a column
 function removeC() {
-  numCols--;
-  var table = document.getElementById("grid");
-  var rows = document.querySelectorAll("tr");
+  if (numCols > 0) {
+    numCols--;
+    var table = document.getElementById("grid");
+    var rows = document.querySelectorAll("tr");
 
-  //delete the last cell from each row
-  for (let i = 0; i < numRows; i++) {
-    rows[i].deleteCell(numCols);
+    //delete the last cell from each row
+    for (let i = 0; i < numRows; i++) {
+      rows[i].deleteCell(numCols);
+    }
   }
 }
 
@@ -95,7 +99,13 @@ function selectColor() {
 }
 
 // Fill all uncolored cells
-function fillU() {}
+function fillU() {
+  var td = document.querySelectorAll("td");
+
+  for (let i = 0; i < numCols * numRows; i++) {
+    if (!td[i].style.backgroundColor) changeColor(td[i]);
+  }
+}
 
 // Fill all cells
 function fillAll() {
