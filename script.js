@@ -23,10 +23,7 @@ function addR() {
       "click",
       function () {
         var target = event.target;
-        if (colorSelected === "Red") target.style.backgroundColor = "red";
-        if (colorSelected === "Blue") target.style.backgroundColor = "blue";
-        if (colorSelected === "Green") target.style.backgroundColor = "green";
-        if (colorSelected === "Yellow") target.style.backgroundColor = "yellow";
+        changeColor(target);
       },
       false
     );
@@ -55,15 +52,20 @@ function addC() {
       "click",
       function () {
         var target = event.target;
-        if (colorSelected === "Red") target.style.backgroundColor = "red";
-        if (colorSelected === "Blue") target.style.backgroundColor = "blue";
-        if (colorSelected === "Green") target.style.backgroundColor = "green";
-        if (colorSelected === "Yellow") target.style.backgroundColor = "yellow";
+        changeColor(target);
       },
       false
     );
     rows[i].appendChild(td);
   }
+}
+
+//change color function
+function changeColor(target) {
+  if (colorSelected === "Red") target.style.backgroundColor = "red";
+  if (colorSelected === "Blue") target.style.backgroundColor = "blue";
+  if (colorSelected === "Green") target.style.backgroundColor = "green";
+  if (colorSelected === "Yellow") target.style.backgroundColor = "yellow";
 }
 
 // Remove a row
@@ -96,7 +98,13 @@ function selectColor() {
 function fillU() {}
 
 // Fill all cells
-function fillAll() {}
+function fillAll() {
+  var td = document.querySelectorAll("td");
+
+  for (let i = 0; i < numCols * numRows; i++) {
+    changeColor(td[i]);
+  }
+}
 
 // Clear all cells
 function clearAll() {
