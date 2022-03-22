@@ -1,2 +1,5 @@
 # grid-maker-starter-code
-Starter code for Assignment 3 - Grid Maker.
+Group: Michelle Cheng (me) michellecheng25
+
+Github pages: https://michellecheng25.github.io/Assignment-3/
+
